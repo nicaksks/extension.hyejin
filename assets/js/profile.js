@@ -31,9 +31,7 @@ async function getProfile() {
   const userNum = await getUserNum();
   const [history, ranked, matchs] = await Promise.all([getHistory(userNum), getRanked(userNum), getMatchs()]);
 
-  const { userStats } = await fetchData(`https://open-api.bser.io/v1/user/stats/${userNum}/0`);
-  const { nickname } = userStats[0];
-  userName.innerHTML = nickname;
+  userName.innerHTML = localStorage.userName;
   level.style.display = "block";
 
   try {
