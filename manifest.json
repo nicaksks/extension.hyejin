@@ -1,0 +1,13 @@
+{
+   "name": "Hyejin",
+   "description": "Veja as informações da sua conta do Eternal Return de uma maneirinha mais rápida.",
+   "version": "1.0",
+   "manifest_version": 3,
+   "permissions": ["storage", "tabs"],
+   "action": {
+    "default_popup": "index.html "
+   },
+   "host_permissions": [
+      "https://open-api.bser.io/*"
+  ]
+}
