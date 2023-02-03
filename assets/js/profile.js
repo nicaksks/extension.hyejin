@@ -29,7 +29,7 @@ async function getUserNum() {
 
 async function getProfile() {
   const userNum = await getUserNum();
-  const [history, ranked, matchs] = await Promise.all([getHistory(userNum), getRanked(userNum), getMatchs()]);
+  const [history, matchs] = await Promise.all([getHistory(userNum), getMatchs()]);
 
   userName.innerHTML = localStorage.userName;
   level.style.display = "block";
@@ -46,12 +46,6 @@ async function getProfile() {
   }
 
   match.innerHTML = matchs;
-}
-
-async function getRanked(userNum) {
-  const seasonId = await season();
-  const { userStats } = await fetchData(`https://open-api.bser.io/v1/user/stats/${userNum}/${seasonId}`);
-  return userStats;
 }
 
 async function getHistory(userNum) {
@@ -138,13 +132,6 @@ function getLoop(match , t) {
   return content;
 }
 
-async function season() {
-  const { data } = await fetchData('https://open-api.bser.io/v1/data/Season', { headers });
-  const seasonId = data.slice(-1)[0].seasonID;
-
-  return seasonId;
-}
-
 function gameModeList() {
   const list = {
     1: "Solo",
@@ -180,9 +167,9 @@ function elo(mmr) {
 		elo = "assets/imgs/elo/5.png";
 	} else if(mmr >= 2000 && mmr < 2400) {
 		elo = "assets/imgs/elo/6.png";
-	} else if(mmr >= 2400 && mmr < 2800) {
+	} else if(mmr >= 2400 && mmr < 2600) {
 		elo = "assets/imgs/elo/7.png";
-	} else if(mmr >= 2800) {
+	} else if(mmr >= 2600) {
 		elo = "assets/imgs/elo/8.png";
 	} else {
 		elo = "assets/imgs/elo/0.png";
