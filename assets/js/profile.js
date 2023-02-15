@@ -167,8 +167,10 @@ function elo(mmr) {
 		elo = "assets/imgs/elo/5.png";
 	} else if(mmr >= 2000 && mmr < 2400) {
 		elo = "assets/imgs/elo/6.png";
+  } else if(mmr >= 2400 && mmr < 2600) {
+		elo = "assets/imgs/elo/9.png";
 	} else if(mmr >= 2400 && mmr < 2600) {
-		elo = "assets/imgs/elo/7.png";
+		elo = "assets/imgs/elo/8.png";
 	} else if(mmr >= 2600) {
 		elo = "assets/imgs/elo/8.png";
 	} else {
